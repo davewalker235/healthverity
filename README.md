@@ -32,8 +32,9 @@ would require some research into different search algorithms and data structures
 Currently, this is not one of my strengths.
 
 
-Question 2
-===============================================================================
+# Question 2
+
+## Part A
 
 Obviously this is a pretty naive solution, but given the time constraints this
 will work. I haven't done any serious load testing, but there are a
@@ -47,15 +48,14 @@ by reading through both files in parallel. Most of my experience is in web
 development, so I'm not very comfortable with advance algorithms and memory
 use for heavy data processing.
 
-Given the opportunity I'd be interested to learn more. In the past I have done
-a bit of experimentation on ProjectEuler.net to get better at writing
-efficient code for large or computationally intensive tasks. However, this type
-of work has not been something I commonly encounter in my day to day work. If
-I had to make this work for a billion lines I would do a lot more discovery
-about the use case and then dig into research on various data structures and
-diffing algorithms. I'd also develop a more robust benchmarking data set to
-test against.
+## Part B
 
+Absolutely. Again, large data processing is not my main skill. There are a
+plethora of diffing strategies out there that would need to be researched. I'd
+probably also want to consider using a different language to optimize memory
+use, Rust comes to mind. This would also require a more robust testing and
+benchmarking strategy than I've put together for this exercise.
 
-Question 3
-===============================================================================
+# Question 3
+
+##
