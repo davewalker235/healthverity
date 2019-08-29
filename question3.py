@@ -15,16 +15,18 @@ def main(filename, part):
   with open(filename, 'r') as file:
     # We're going to keep a counter for each column to track what we expect
     # the integer to be and compare it with the values. This should let us
-    # identify the mismatches without much overhead
+    # identify the mismatches without much overhead. Realized late in this
+    # that this won't work when the the single missing value occurs before
+    # the value that is missing in both. I'd have to come up with a way
+    # of backtracking and I just don't have the time right now to research that
     properA = 1
     properB = 1
     for line in file:
+
       [a, b] = line.strip().split(',')
 
       missingA = str(properA) != a
       missingB = str(properB) != b
-
-      print(a, properA, b, properB, missingA, missingB)
 
       if part == 'a' and missingA and not missingB:
         return properB
@@ -32,25 +34,8 @@ def main(filename, part):
       if part == 'b' and missingA and missingB:
         return properA
 
-      if not missingA: properA += 1
-      if not missingB: properB += 1
-
-
-
-      # if str(properA) != a and str(properB) != b:
-      #   print('parta', a, b, properA, properB)
-      #   if part == 'b':
-      #     return properA
-      #   else:
-      #     properA += 1
-      #     properB += 1
-      #
-      # if str(properA) != a and str(properB) == b:
-      #   print('partb', a, b, properA, properB)
-      #
-      #   properA += 1
-      #   if part == 'a':
-      #     return properB
+      properA += 2 if missingA else 1
+      properB += 2 if missingB else 1
 
 # Switch to argparse for a nicer interface, I've forgotten a lot of this stuff
 parser = argparse.ArgumentParser()
